@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "832484769547",
+    "firebase_url": "https://luminof-356a8.firebaseio.com",
+    "project_id": "luminof-356a8",
+    "storage_bucket": "luminof-356a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832484769547:android:78376d99139b5847",
+        "android_client_info": {
+          "package_name": "com.example.hedgehog.luminof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832484769547-4g4d81pdjouna3of7jm99mhm6ce0pbju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {  "current_key": "AIzaSyATzXIbRRPu1DOrJewInVEv1xzjpUqeri4" }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
