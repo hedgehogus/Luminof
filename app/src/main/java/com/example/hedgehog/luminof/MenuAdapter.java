@@ -53,7 +53,7 @@ public class MenuAdapter extends BaseAdapter {
             vh = (ViewHolder) rootView.getTag();
         }
 
-        vh.tvName.setText(arrayList.get(position).getResourse());
+        vh.tvName.setText(arrayList.get(position).getResource());
         return rootView;
     }
 
@@ -64,8 +64,6 @@ public class MenuAdapter extends BaseAdapter {
         ViewHolder(View itemView) {
             rootView = itemView;
             tvName = (TextView) rootView.findViewById(R.id.tvName);
-
-
         }
     }
 }
