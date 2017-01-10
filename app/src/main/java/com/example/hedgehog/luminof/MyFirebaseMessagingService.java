@@ -39,7 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     public void sendNotification(String messageBody) {
         Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),
-                R.drawable.arrow);
+                R.drawable.main_image);
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -47,7 +47,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.arrow)
+
                 .setLargeIcon(icon)
                 .setContentTitle("FCM Message")
                 .setContentText(messageBody)
