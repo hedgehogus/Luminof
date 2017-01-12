@@ -17,7 +17,6 @@ import com.example.hedgehog.luminof.R;
 
 public class FeedBackFragment extends Fragment {
     private final String address = "luminofo@gmail.com";
-
     private final String subject = "luminof";
     Button send;
     EditText emailtext;
@@ -54,13 +53,19 @@ public class FeedBackFragment extends Fragment {
                 emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
                         emailtext.getText().toString());
 
-                emailIntent.setType("text/plain");
+                emailIntent.setType("message/rfc822");
 
-                getActivity().startActivity(Intent.createChooser(emailIntent, getContext().getResources().getString(
-                        R.string.send_email)));
+                getActivity().startActivityFromFragment(FeedBackFragment.this, Intent.createChooser(emailIntent, getContext().getResources().getString(
+                        R.string.send_email)), 5555);
+
             }
         });
         return rootView;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        emailtext.setText("");
+    }
 }

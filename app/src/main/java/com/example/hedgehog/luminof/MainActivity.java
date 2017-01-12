@@ -2,6 +2,8 @@ package com.example.hedgehog.luminof;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,10 +11,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Switch;
 
 import com.example.hedgehog.luminof.fragment.CatalogFragment;
 import com.example.hedgehog.luminof.fragment.ContactsFragment;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     MainFragment mainFragment;
 
     final static String MAIN_FRAGMENT_TAG = "mainfragment";
+    private String currentFragmentTag;
 
     ArrayList<Item> menuTitles = new ArrayList<>();
 
@@ -50,19 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
         mainFragment = new MainFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
-        fragmentTransaction.commit();
+
+            fragmentTransaction.add(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
+            fragmentTransaction.commit();
+
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         mDrawerList.setAdapter(new MenuAdapter(this, menuTitles));
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_name, R.string.app_name) {
 
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, menuTitles.get(position).getFragment(), menuTitles.get(position).getFragmentTag());
                 fragmentTransaction.commit();
+                currentFragmentTag = menuTitles.get(position).getFragmentTag();
                 mDrawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
             fragmentTransaction.commit();
+            currentFragmentTag = MAIN_FRAGMENT_TAG;
         } else {
             super.onBackPressed();
         }
@@ -115,6 +119,24 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
 
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        // super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("fragment", currentFragmentTag);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        // super.onRestoreInstanceState(savedInstanceState);
+        currentFragmentTag = savedInstanceState.getString("fragment");
+        Item fragment = Item.getByTag(currentFragmentTag);
+        if (fragment != null) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment.getFragment(), MAIN_FRAGMENT_TAG);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -150,6 +172,21 @@ public class MainActivity extends AppCompatActivity {
 
         public final String getFragmentTag() {
             return fragmentTag;
+        }
+
+        @Nullable
+        public static Item getByTag (String tag){
+            switch (tag){
+                case "catalog":
+                    return CATALOG;
+                case "payment":
+                    return PAYMENT;
+                case "contacts":
+                    return CONTACTS;
+                case "feedback":
+                    return FEEDBACK;
+            }
+            return null;
         }
     }
 
