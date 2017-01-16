@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
@@ -35,7 +36,15 @@
             android:adjustViewBounds="true"
             android:padding="@dimen/menu_margin"
             android:scaleType="fitXY"
-            android:src="@drawable/contacts_1" />
+            android:src="@drawable/payment_1" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/payment_fragment_text2"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/text_size" />
 
         <ImageView
             android:id="@+id/imageView1"
@@ -44,7 +53,7 @@
             android:adjustViewBounds="true"
             android:padding="@dimen/menu_margin"
             android:scaleType="fitXY"
-            android:src="@drawable/contacts_2" />
+            android:src="@drawable/payment_2" />
 
     </LinearLayout>
 </ScrollView>
