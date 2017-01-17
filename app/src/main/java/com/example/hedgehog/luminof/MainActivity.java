@@ -2,6 +2,7 @@ package com.example.hedgehog.luminof;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Item item = Item.getByTag(currentFragmentTag);
+                fragmentTransaction.replace(R.id.fragment_container, item.getFragment(), currentFragmentTag);
+                fragmentTransaction.commit();
             }
 
             public void onDrawerOpened(View drawerView) {
@@ -83,14 +89,12 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, menuTitles.get(position).getFragment(), menuTitles.get(position).getFragmentTag());
-                fragmentTransaction.commit();
-                currentFragmentTag = menuTitles.get(position).getFragmentTag();
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 mDrawerLayout.closeDrawer(GravityCompat.START);
+                currentFragmentTag = menuTitles.get(position).getFragmentTag();
             }
         });
+
     }
 
     @Override
