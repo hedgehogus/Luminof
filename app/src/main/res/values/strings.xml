@@ -4,7 +4,6 @@
     <string name="payment">Оплата и доставка</string>
     <string name="contacts">Контакты</string>
     <string name="feedback">Обратная связь</string>
-    <string name="send">Отправить</string>
     <string name="main_screen_text">LUMINOF - Широкий ассортимент люминофора, флуоресцента, лака и у/ф ламп лучшего качества и по самой низкой цене!\n
 \n
 Люминофор - это светонакопительный пигмент, он обладает свойством излучать яркое свечение в темноте и под ультрафиолетом.\n
@@ -57,4 +56,9 @@ E-mail: luminofo@gmail.com</string>
 
    Используется для пометки купюр, скрытой маркировки, для проведения квестов и т. д. \n
 Ультрафиолетовые маркеры хорошо работают, не сохнут, стойкие к различным воздействиям.</string>
+    <string name="feedback_name">Имя</string>
+    <string name="feedback_number">Номер телефона</string>
+    <string name="feedback_email">Email</string>
+    <string name="feedback_send">Заказать обратный звонок</string>
+    <string name="feedback_sent">Сообщение отправлено</string>
 </resources>

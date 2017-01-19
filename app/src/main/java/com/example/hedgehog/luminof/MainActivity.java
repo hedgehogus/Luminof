@@ -2,8 +2,6 @@ package com.example.hedgehog.luminof;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,13 +10,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Switch;
 
 import com.example.hedgehog.luminof.fragment.CatalogFragment;
 import com.example.hedgehog.luminof.fragment.ContactsFragment;
@@ -58,9 +53,8 @@ public class MainActivity extends AppCompatActivity {
         mainFragment = new MainFragment();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            fragmentTransaction.add(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
-            fragmentTransaction.commit();
-
+        fragmentTransaction.add(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
+        fragmentTransaction.commit();
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -101,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             this.mDrawerLayout.closeDrawer(GravityCompat.START);
-        } else if (!mainFragment.isVisible()){
+        } else if (!mainFragment.isVisible()) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, mainFragment, MAIN_FRAGMENT_TAG);
             fragmentTransaction.commit();
@@ -179,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Nullable
-        public static Item getByTag (String tag){
-            switch (tag){
+        public static Item getByTag(String tag) {
+            switch (tag) {
                 case "catalog":
                     return CATALOG;
                 case "payment":
