@@ -19,6 +19,7 @@
             android:textColor="@color/colorTitle"
             android:textSize="@dimen/text_title_size" />
 
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
