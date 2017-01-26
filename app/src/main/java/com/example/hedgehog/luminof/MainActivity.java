@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     MainFragment mainFragment;
 
     final static String MAIN_FRAGMENT_TAG = "mainfragment";
-    private String currentFragmentTag;
+    private String currentFragmentTag = MAIN_FRAGMENT_TAG;
 
     ArrayList<Item> menuTitles = new ArrayList<>();
 
@@ -68,17 +68,16 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                Item item = Item.getByTag(currentFragmentTag);
-                fragmentTransaction.replace(R.id.fragment_container, item.getFragment(), currentFragmentTag);
-                fragmentTransaction.commit();
-                if (item.getFragment() instanceof FeedBackFragment){
-                    ((FeedBackFragment)item.getFragment()).removeFocus();
+                if(currentFragmentTag != MAIN_FRAGMENT_TAG) {
+                    Item item = Item.getByTag(currentFragmentTag);
+                    fragmentTransaction.replace(R.id.fragment_container, item.getFragment(), currentFragmentTag);
+                    fragmentTransaction.commit();
 
                 }
             }
 
             public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
+               // super.onDrawerOpened(drawerView);
             }
         };
         mDrawerLayout.addDrawerListener(mDrawerToggle);

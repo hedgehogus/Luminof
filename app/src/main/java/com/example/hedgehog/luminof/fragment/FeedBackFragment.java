@@ -1,13 +1,10 @@
 package com.example.hedgehog.luminof.fragment;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +33,7 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       // getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         rootView = inflater.inflate(R.layout.fragment_feed_back, container, false);
         send = (Button) rootView.findViewById(R.id.emailsendbutton);
@@ -74,30 +71,16 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
             }
         });
 
-        rootView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                Log.d ("asdf", v.getId() + " hs focus " + hasFocus);
-            }
-        });
         return rootView;
     }
-    public void removeFocus(){
-/*
-        if (etName!= null) {
-            Log.d ("asdf",  "remove" );
-            etName.clearFocus();
-            etMail.requestFocus();
-        }*/
-    }
-
+    
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        fillDefaultValues(v,hasFocus);
+        fillDefaultValues(v, hasFocus);
     }
 
-    private void fillDefaultValues(View v, boolean hasFocus){
+    private void fillDefaultValues(View v, boolean hasFocus) {
         String defaultValue = "";
         switch (v.getId()) {
             case R.id.etName:
@@ -111,12 +94,12 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
                 break;
         }
         if (hasFocus) {
-            if (((EditText)v).getText().toString().equals(defaultValue)) {
+            if (((EditText) v).getText().toString().equals(defaultValue)) {
                 ((EditText) v).setText("");
 
             }
         } else {
-            if (((EditText)v).getText().toString().equals("")) {
+            if (((EditText) v).getText().toString().equals("")) {
                 ((EditText) v).setText(defaultValue);
 
             }
@@ -136,7 +119,7 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
         protected void onPostExecute(Boolean result) {
             WaitingDialog.dismiss();
             Toast.makeText(getContext(), R.string.feedback_sent, Toast.LENGTH_LONG).show();
-           // (getActivity()).finish();
+            // (getActivity()).finish();
         }
 
         @Override
