@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof.example;
+package com.dls.luminof.example;
 
 import java.security.AccessController;
 import java.security.Provider;

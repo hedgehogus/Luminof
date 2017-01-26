@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof.fragment;
+package com.dls.luminof.fragment;
 
 
 import android.app.ProgressDialog;
@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.hedgehog.luminof.R;
-import com.example.hedgehog.luminof.example.MailSenderClass;
+import com.dls.luminof.R;
+import com.dls.luminof.example.MailSenderClass;
 
 public class FeedBackFragment extends Fragment implements View.OnFocusChangeListener {
     // private final String address = "luminofo@gmail.com";
@@ -73,7 +73,7 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
 
         return rootView;
     }
-    
+
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {

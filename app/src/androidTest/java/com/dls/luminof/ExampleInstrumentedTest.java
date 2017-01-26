@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof;
+package com.dls.luminof;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.hedgehog.luminof", appContext.getPackageName());
+        assertEquals("com.dls.luminof", appContext.getPackageName());
     }
 }

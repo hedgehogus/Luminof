@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context="com.example.hedgehog.luminof.fragment.ContactsFragment">
+    tools:context="com.dls.luminof.fragment.ContactsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

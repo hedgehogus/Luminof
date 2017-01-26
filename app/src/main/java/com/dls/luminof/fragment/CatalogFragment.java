@@ -1,21 +1,13 @@
-package com.example.hedgehog.luminof.fragment;
+package com.dls.luminof.fragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.hedgehog.luminof.R;
+import com.dls.luminof.R;
 
 
 public class CatalogFragment extends Fragment {

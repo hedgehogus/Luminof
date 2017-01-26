@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof.fragment;
+package com.dls.luminof.fragment;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hedgehog.luminof.R;
+import com.dls.luminof.R;
 
 public class PaymentFragment extends Fragment {
 

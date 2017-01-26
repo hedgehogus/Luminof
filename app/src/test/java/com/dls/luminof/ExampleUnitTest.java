@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof;
+package com.dls.luminof;
 
 import org.junit.Test;
 

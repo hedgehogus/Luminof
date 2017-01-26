@@ -1,4 +1,4 @@
-package com.example.hedgehog.luminof;
+package com.dls.luminof;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,17 +10,16 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.hedgehog.luminof.fragment.CatalogFragment;
-import com.example.hedgehog.luminof.fragment.ContactsFragment;
-import com.example.hedgehog.luminof.fragment.FeedBackFragment;
-import com.example.hedgehog.luminof.fragment.MainFragment;
-import com.example.hedgehog.luminof.fragment.PaymentFragment;
+import com.dls.luminof.fragment.CatalogFragment;
+import com.dls.luminof.fragment.ContactsFragment;
+import com.dls.luminof.fragment.FeedBackFragment;
+import com.dls.luminof.fragment.MainFragment;
+import com.dls.luminof.fragment.PaymentFragment;
 
 import java.util.ArrayList;
 
