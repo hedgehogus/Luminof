@@ -63,4 +63,5 @@ E-mail: luminofo@gmail.com</string>
     <string name="feedback_sent">Сообщение отправлено</string>
     <string name="sending">Отправка данных</string>
     <string name="sending_message">Отправляем сообщение...</string>
+    <string name="no_connection">Ошибка! Нет соединения с интернетом</string>
 </resources>

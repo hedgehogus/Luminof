@@ -2,6 +2,9 @@ package com.dls.luminof.fragment;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,8 +20,8 @@ import com.dls.luminof.R;
 import com.dls.luminof.example.MailSenderClass;
 
 public class FeedBackFragment extends Fragment implements View.OnFocusChangeListener {
-    // private final String address = "luminofo@gmail.com";
-    private final String address = "research162@gmail.com";
+    private final String address = "luminofo@gmail.com";
+    //private final String address = "research162@gmail.com";
     private final String subject = "luminof feedback";
 
     private String textMessage;
@@ -50,6 +53,11 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
 
             @Override
             public void onClick(View v) {
+
+                if (!isNetworkExist(getContext())){
+                    Toast.makeText(getContext(), R.string.no_connection, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 StringBuilder sb = new StringBuilder();
                 sb.append(getContext().getResources().getString(R.string.feedback_name));
@@ -139,6 +147,19 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
 
             return false;
         }
+    }
+    public static boolean isNetworkExist (Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+
+        if (activeNetwork != null) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+               return  true;
+            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
