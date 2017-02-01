@@ -26,7 +26,6 @@
 
         </LinearLayout>
 
-
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +34,20 @@
             android:textColor="@color/colorText"
             android:ems="10"
             android:imeOptions="actionDone"
-            android:text="@string/feedback_name"
-            android:id="@+id/etName"/>
+            android:text="@string/feedback_details"
+            android:id="@+id/etDetails"/>
+
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/etBackground"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:textColor="@color/colorText"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:text="@string/feedback_name"
+        android:id="@+id/etName"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

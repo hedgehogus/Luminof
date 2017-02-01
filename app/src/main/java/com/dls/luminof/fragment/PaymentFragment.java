@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dls.luminof.MainActivity;
 import com.dls.luminof.R;
 
 public class PaymentFragment extends Fragment {
@@ -19,7 +20,17 @@ public class PaymentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_payment, container, false);
-    }
+        View root = inflater.inflate(R.layout.fragment_payment, container, false);
+
+        root.findViewById(R.id.textView4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).goToFeedBack();
+            }
+        });
+
+        return root;
+
+        }
 
 }

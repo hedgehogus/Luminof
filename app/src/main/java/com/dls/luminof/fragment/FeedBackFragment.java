@@ -20,13 +20,13 @@ import com.dls.luminof.R;
 import com.dls.luminof.example.MailSenderClass;
 
 public class FeedBackFragment extends Fragment implements View.OnFocusChangeListener {
-    private final String address = "luminofo@gmail.com";
-    //private final String address = "research162@gmail.com";
+    //private final String address = "luminofo@gmail.com";
+    private final String address = "research162@gmail.com";
     private final String subject = "luminof feedback";
 
     private String textMessage;
     Button send;
-    EditText etName, etNumber, etMail;
+    EditText etName, etNumber, etMail, etDetails;
     View rootView;
 
     public FeedBackFragment() {
@@ -44,10 +44,12 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
         etName = (EditText) rootView.findViewById(R.id.etName);
         etNumber = (EditText) rootView.findViewById(R.id.etNumber);
         etMail = (EditText) rootView.findViewById(R.id.etMail);
+        etDetails = (EditText) rootView.findViewById(R.id.etDetails);
 
         etName.setOnFocusChangeListener(this);
         etNumber.setOnFocusChangeListener(this);
         etMail.setOnFocusChangeListener(this);
+        etDetails.setOnFocusChangeListener(this);
 
         send.setOnClickListener(new View.OnClickListener() {
 
@@ -60,6 +62,10 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
                 }
 
                 StringBuilder sb = new StringBuilder();
+                sb.append(getContext().getResources().getString(R.string.feedback_details));
+                sb.append(":   ");
+                sb.append(etDetails.getText().toString());
+                sb.append("\n");
                 sb.append(getContext().getResources().getString(R.string.feedback_name));
                 sb.append(":   ");
                 sb.append(etName.getText().toString());
@@ -100,6 +106,8 @@ public class FeedBackFragment extends Fragment implements View.OnFocusChangeList
             case R.id.etMail:
                 defaultValue = getContext().getResources().getString(R.string.feedback_email);
                 break;
+            case R.id.etDetails:
+                defaultValue = getContext().getResources().getString(R.string.feedback_details);
         }
         if (hasFocus) {
             if (((EditText) v).getText().toString().equals(defaultValue)) {

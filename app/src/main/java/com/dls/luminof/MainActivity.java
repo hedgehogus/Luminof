@@ -66,13 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                if(currentFragmentTag != MAIN_FRAGMENT_TAG) {
-                    Item item = Item.getByTag(currentFragmentTag);
-                    fragmentTransaction.replace(R.id.fragment_container, item.getFragment(), currentFragmentTag);
-                    fragmentTransaction.commit();
-
-                }
+                changeFragment();
             }
 
             public void onDrawerOpened(View drawerView) {
@@ -92,6 +86,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void changeFragment(){
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(currentFragmentTag != MAIN_FRAGMENT_TAG) {
+            Item item = Item.getByTag(currentFragmentTag);
+            fragmentTransaction.replace(R.id.fragment_container, item.getFragment(), currentFragmentTag);
+            fragmentTransaction.commit();
+
+        }
     }
 
     @Override
@@ -126,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         // super.onSaveInstanceState(outState, outPersistentState);
         outState.putString("fragment", currentFragmentTag);
+    }
+
+    public void goToFeedBack(){
+        currentFragmentTag = Item.FEEDBACK.getFragmentTag();
+        changeFragment();
     }
 
     @Override
