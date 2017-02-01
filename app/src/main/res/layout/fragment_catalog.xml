@@ -64,6 +64,15 @@
                 android:src="@drawable/luminofor_2" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorText" />
         <TextView
             android:id="@+id/tvTitle2"
             android:layout_width="match_parent"
@@ -143,7 +152,15 @@
                 android:src="@drawable/fluorescent_5" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorText" />
         <TextView
             android:id="@+id/tvTitle3"
             android:layout_width="match_parent"
@@ -172,7 +189,15 @@
             android:layout_gravity="center"
             android:scaleType="fitXY"
             android:src="@drawable/lak_01" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorText" />
         <TextView
             android:id="@+id/tvTitle4"
             android:layout_width="match_parent"
@@ -216,7 +241,15 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/detector_2" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorText" />
         <TextView
             android:id="@+id/tvTitle5"
             android:layout_width="match_parent"
@@ -260,7 +293,15 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/lampa_2" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorText" />
         <TextView
             android:id="@+id/tvTitle6"
             android:layout_width="match_parent"
